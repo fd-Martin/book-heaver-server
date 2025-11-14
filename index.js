@@ -40,6 +40,12 @@ async function run() {
       res.send(result);
     });
 
+        app.post("/books", async (req, res) => {
+      const newBook = req.body;
+      const result = await booksCollection.insertOne(newBook);
+      res.send(result);
+    });
+    
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
