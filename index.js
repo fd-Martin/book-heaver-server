@@ -45,7 +45,17 @@ async function run() {
       const result = await booksCollection.insertOne(newBook);
       res.send(result);
     });
-    
+
+        app.patch("/books/:id", async (req, res) => {
+      const id = req.params.id;
+      const updateBook = req.body;
+      const query = { _id: new ObjectId(id) };
+      const update = {
+        $set: updateBook,
+      };
+      const result = await booksCollection.updateOne(query, update);
+      res.send(result);
+    });
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
