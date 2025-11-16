@@ -115,9 +115,12 @@ run().catch(console.dir);
 
 // ++++++++++++++++++
 app.get("/", (req, res) => {
-  res.send("Smart server is running");
+  res.send("book heaven server is running");
 });
 
 app.listen(port, (req, res) => {
   console.log(`Smart server is running on port: ${port}`);
 });
+
+
+module.exports = app;
