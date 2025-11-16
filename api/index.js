@@ -118,9 +118,14 @@ app.get("/", (req, res) => {
   res.send("book heaven server is running");
 });
 
-app.listen(port, (req, res) => {
-  console.log(`Smart server is running on port: ${port}`);
-});
+// app.listen(port, (req, res) => {
+//   console.log(`Smart server is running on port: ${port}`);
+// });
 
 
-module.exports = app;
+// module.exports = app;
+
+const serverless = require("serverless-http");
+module.exports = serverless(app);
+
+
